@@ -11,7 +11,7 @@ Le framework REIO introduit une rupture méthodologique autour de trois axes pri
 
 ## Spécifications et Intérêts Industriels de la Suite d'IP Cores
 
-### REIO-CPU : Séquenceur Durci à Algèbre Ternaire
+### REIO-TPU (Ternary Processing Unit) : Séquenceur Durci à Algèbre Ternaire
 * **Spécification :** Unité d'exécution et séquenceur SEooC émulant l'algèbre ternaire (20 Slice LUTs).
 * **Intérêt Industriel :** Élimine le besoin de doubler intégralement le processeur (Lockstep matériel lourd). Il offre une immunité native contre les dérives de séquencement provoquées par des perturbations radiatives (MBU/SEU), réduisant drastiquement l'empreinte silicium et les coûts de licence IP.
 * **Cas d'Utilisation :** Utilisé comme micro-contrôleur de sécurité (Safety Manager) pour superviser l'état des machines à états (FSM) critiques du processeur hôte.
