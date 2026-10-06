@@ -12,8 +12,7 @@ Le framework REIO introduit une rupture méthodologique autour de trois axes pri
 ## Architecture et Spécifications Techniques
 
 REIO associe des automates matériels (IP Cores Sentinelles) au plus près des bus et un micro-noyau logiciel (Superviseur) sur le processeur hôte. Les modules incluent :
-* **REIO-AMT :** Intercepteur de bus (Bus Guardian) à latence de 0 cycle et consommation de 1 mW.
-* **REIO-CPU :** Unité d'exécution et séquenceur SEooC émulant l'algèbre ternaire (20 Slice LUTs).
+* **REIO-XBAR :** Matrice d'Interconnexion Sécurisée et Cellule de Confinement de Bus (Bus Guardian)* **REIO-CPU :** Unité d'exécution et séquenceur SEooC émulant l'algèbre ternaire (20 Slice LUTs).
 * **REIO-DRIVE :** Interface d'acquisition durcie pour actionneurs ADAS (21 Slice LUTs).
 * **REIO-SAFE :** Sentinelle d'accès mémoire pour la protection des registres (7 Slice LUTs).
 
