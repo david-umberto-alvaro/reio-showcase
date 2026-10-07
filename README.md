@@ -31,9 +31,11 @@ Le framework REIO introduit une rupture méthodologique autour de trois axes :
 * **Intérêt Industriel :** Assure le cloisonnement des fautes (Fault Containment) en temps réel avec une latence combinatoire nulle (0 cycle). Si un composant non critique devient fou (*babbling idiot*), REIO-XBAR l'isole instantanément.
 * **Cas d'Utilisation :** Positionné comme nœud central de communication entre le cœur de calcul applicatif (non sûr) et les périphériques certifiés ASIL-D.
 
-Pour retrouver l'intégralité des tableaux comparatifs, des métrologies post-routage Vivado, ainsi que les détails complets de licence et de propriété intellectuelle (IEEE 1735), veuillez consulter le dépôt et les documents de référence associés.
+Pour étudier les fondations mathématiques de la logique paraconsistante sous-jacente et la formulation formelle des six axiomes de sûreté, veuillez vous référer au dépôt académique de référence.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20743411.svg)](https://doi.org/10.5281/zenodo.20743411)
+
+L'accès à l'intégralité des tableaux comparatifs, des dossiers métrologiques consolidés post-routage d'usine (AMD Vivado), ainsi que les spécifications de propriété intellectuelle chiffrée (IEEE 1735) est strictement restreint et soumis à la signature préalable d'un Accord de Confidentialité mutuel (Mutual NDA).
 
 ## Analyse Comparative
 
