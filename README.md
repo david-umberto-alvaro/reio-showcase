@@ -9,12 +9,27 @@ Le framework REIO introduit une rupture méthodologique autour de trois axes :
 2. **Émulation de Logique Trivalente (L₃) :** Évalue de manière déterministe un troisième état d'incertitude matérielle pour confiner localement les incohérences logiques.
 3. **Isolation Hybride Synchrone / Combinatoire :** Combine une matrice de confinement à latence de 0 cycle et un étage de disjonction en 1 cycle contre les glitchs électriques.
 
-## Spécifications de la Suite d'IP Cores
+## Spécifications et Intérêts Industriels de la Suite d'IP Cores
 
-* **REIO-CPU / TPU :** Microprocesseur ternaire unifié . Utilise un pilotage MMIO standard depuis un logiciel Rust sans nécessiter de compilateur ternaire natif. Isolation en 1 cycle d'horloge (ISO 26262 ASIL-D).
-* **REIO-DRIVE :** Interface de pilotage durcie pour actionneurs ADAS (24 Slice LUTs / 19 Slice Registers) garantissant un temps de propagation maximal déterministe.
-* **REIO-SAFE :** Sentinelle de protection mémoire ultra-légère (8 Slice LUTs / 13 Slice Registers) pour empêcher les débordements de tampon.
-* **REIO-XBAR :** Matrice d'interconnexion et Bus Guardian combinatoire (22 LUTs) assurant un cloisonnement des fautes en temps réel.
+### REIO-CPU / TPU : Microprocesseur Ternaire Unifié (Safety Manager)
+* **Spécification :** Séquenceur durci monolithique (67 Slice LUTs / 157 Slice Registers). Pilotage MMIO transparent (adresse `0x4000_6000`) depuis un logiciel Rust standard, sans compilateur ternaire dédié.
+* **Intérêt Industriel :** Élimine le besoin de doubler intégralement le processeur (Lockstep matériel lourd). Il offre une isolation synchrone en 1 cycle d'horloge (10 ns) face aux dérives provoquées par des perturbations radiatives (MBU/SEU).
+* **Cas d'Utilisation :** Utilisé comme contrôleur de sécurité central pour superviser en tâche de fond l'état des machines à états (FSM) critiques du calculateur hôte.
+
+### REIO-DRIVE : Interface de Pilotage Sécurisée pour Actionneurs
+* **Spécification :** Interface de contrôle durcie pour actionneurs ADAS (24 Slice LUTs / 19 Slice Registers).
+* **Intérêt Industriel :** Garantit un temps de propagation maximal déterministe pour empêcher l'injection d'ordres aberrants ou de pannes latentes au niveau de la couche physique des actionneurs du véhicule.
+* **Cas d'Utilisation :** Placé directement en frontal des contrôleurs de moteurs de direction assistée ou des modules de freinage d'urgence autonome (AEB) pour valider la cohérence des trames de commande.
+
+### REIO-SAFE : Sentinelle de Protection Mémoire (MMU Ultra-Light)
+* **Spécification :** Sentinelle d'accès mémoire pour la protection des registres critiques (8 Slice LUTs / 13 Slice Registers).
+* **Intérêt Industriel :** Apporte une isolation matérielle stricte à un coût de surface dérisoire, empêchant les attaques par débordement de tampon (buffer overflow) ou les pointeurs fous d'écraser la configuration de la puce.
+* **Cas d'Utilisation :** Verrouille dynamiquement l'accès aux registres de configuration des horloges (Clock Gating) et de la gestion de l'alimentation après la phase de boot sécurisé.
+
+### REIO-XBAR : Matrice d'Interconnexion et Confinement (Bus Guardian)
+* **Spécification :** Commutateur réseau sur puce (NoC) et cellule de confinement de bus (22 Slice LUTs).
+* **Intérêt Industriel :** Assure le cloisonnement des fautes (Fault Containment) en temps réel avec une latence combinatoire nulle (0 cycle). Si un composant non critique devient fou (*babbling idiot*), REIO-XBAR l'isole instantanément.
+* **Cas d'Utilisation :** Positionné comme nœud central de communication entre le cœur de calcul applicatif (non sûr) et les périphériques certifiés ASIL-D.
 
 Pour retrouver l'intégralité des tableaux comparatifs, des métrologies post-routage Vivado, ainsi que les détails complets de licence et de propriété intellectuelle (IEEE 1735), veuillez consulter le dépôt et les documents de référence associés.
 
