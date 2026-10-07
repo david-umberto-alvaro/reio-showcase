@@ -19,7 +19,7 @@ Le framework REIO introduit une rupture méthodologique autour de trois axes :
 ### REIO-DRIVE : Interface de Pilotage SÉCURISÉE pour Actionneurs
 * **Spécification :** Interface de contrôle durcie pour actionneurs ADAS.
 * **Intérêt Industriel :** Garantit un temps de propagation maximal déterministe pour empêcher l'injection d'ordres aberrants ou de pannes latentes au niveau de la couche physique des actionneurs du véhicule.
-* **Cas d'Utilisation :** Placed directement en frontal des contrôleurs de moteurs de direction assistée ou des modules de freinage d'urgence autonome (AEB) pour valider la cohérence des trames de commande.
+* **Cas d'Utilisation :** Placer directement en frontal des contrôleurs de moteurs de direction assistée ou des modules de freinage d'urgence autonome (AEB) pour valider la cohérence des trames de commande.
 
 ### REIO-SAFE : Sentinelle de Protection Mémoire (MMU Ultra-Light)
 * **Spécification :** Sentinelle d'accès mémoire pour la protection des registres critiques.
