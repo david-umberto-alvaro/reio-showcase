@@ -31,11 +31,26 @@ Le framework REIO introduit une rupture méthodologique autour de trois axes :
 * **Intérêt Industriel :** Assure le cloisonnement des fautes (Fault Containment) en temps réel avec une latence combinatoire nulle (0 cycle). Si un composant non critique devient fou (*babbling idiot*), REIO-XBAR l'isole instantanément.
 * **Cas d'Utilisation :** Positionné comme nœud central de communication entre le cœur de calcul applicatif (non sûr) et les périphériques certifiés ASIL-D.
 
-Pour étudier les fondations mathématiques de la logique paraconsistante sous-jacente et la formulation formelle des six axiomes de sûreté, veuillez vous référer au dépôt académique de référence.
+### Matrice d'Alignement Synthétique (Fondations Logiques L₃ ⇄ IP Cores)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20743411.svg)](https://doi.org/10.5281/zenodo.20743411)
+L'infrastructure matérielle implémentée sous Vivado est la traduction physique directe des règles de sûreté formalisées dans la théorie paraconsistante :
 
-L'accès à l'intégralité des tableaux comparatifs, des dossiers métrologiques consolidés post-routage d'usine (AMD Vivado), ainsi que les spécifications de propriété intellectuelle chiffrée (IEEE 1735) est strictement restreint et soumis à la signature préalable d'un Accord de Confidentialité mutuel (Mutual NDA).
+| Axiome | Pilier Théorique | Implémentation Hardware (Suite REIO) | Impact sur la Sûreté Réelle |
+| :--- | :--- | :--- | :--- |
+| **REIO-A1** | Ancrage Matériel Pur | **REIO-CPU** | Confinement strict par exclusion d'états intermédiaires. Bloque l'erreur en matériel sans saturer le processeur hôte. |
+| **REIO-A2** | Isolation des Perceptions | **REIO-DRIVE** | Exclusion totale de l'intervention humaine pour prémunir les registres d'actionneurs de toute altération. |
+| **REIO-A3** | Convergence Orthogonale | **REIO-XBAR** | Filtrage matériel ternaire en ligne. Rejet immédiat de toute donnée non ancrée aux primitives physiques (Résolution de Gettier). |
+| **REIO-A4** | Confinement & Seuils | **REIO-XBAR** (Bus Guardian) | Disjonction physique instantanée en 1 cycle (10 ns) dès le franchissement des seuils critiques pour découpler les bus corrompus. |
+| **REIO-A5** | Axiomatisation Récursive | **REIO-SAFE** | Élimination mathématique de la métastabilité inter-horloges par ajustement discret (+1, -1, 0) pour garantir la persistance mémoire. |
+| **REIO-A6** | Attestation Pragmatique | **REIO-CPU** (Verrou Synchrone) | Scellement irréversible de chaque cycle d'évolution. Interception immédiate des fautes via la ligne d'interruption critique. |
+
+### Accès aux Travaux et Confidentialité
+
+* **Recherche Théorique (Axiomes) :** Le dépôt académique associé sur **Zenodo** est placé sous statut d'**Accès Restreint**. 
+
+[![DOI](https://zenodo.org)](https://doi.org)](https://doi.org/10.5281/zenodo.20743411)
+
+* **Implémentation Industrielle (Vivado & Silicon) :** L'accès aux dossiers métrologiques réels, aux rapports de timing post-routage, aux scripts de synthèse et aux spécifications matérielles chiffrées (Netlists sous norme IEEE 1735) est strictement exclus de la publication académique. Ces éléments font l'objet d'un séquestre privé et ne sont partagés qu'après signature d'un **Accord de Confidentialité mutuel (Mutual NDA)**.
 
 ## Analyse Comparative
 
