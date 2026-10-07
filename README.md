@@ -31,9 +31,9 @@ Le framework REIO introduit une rupture méthodologique autour de trois axes :
 * **Intérêt Industriel :** Assure le cloisonnement des fautes (Fault Containment) en temps réel avec une latence combinatoire nulle (0 cycle). Si un composant non critique devient fou (*babbling idiot*), REIO-XBAR l'isole instantanément.
 * **Cas d'Utilisation :** Positionné comme nœud central de communication entre le cœur de calcul applicatif (non sûr) et les périphériques certifiés ASIL-D.
 
-### Matrice d'Alignement Synthétique (Fondations Logiques L₃ ⇄ IP Cores)
+### 🔬 Fondations Théoriques & Spécifications (Zenodo DOI)
 
-L'infrastructure matérielle implémentée sous Vivado est la traduction physique directe des règles de sûreté formalisées dans la théorie paraconsistante :
+* **REIO-CORE :** Cadre logique formel s'appuyant sur une approche logique paraconsistante et des machines d'états (FSM) durcies pour garantir un confinement contextuel déterministe malgré les fautes physiques (*bit-flips*). Document de recherche officiel enregistré sous l'identifiant académique permanent : [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20743411.svg)](https://doi.org/10.5281/zenodo.20743411)
 
 | Axiome | Pilier Théorique | Implémentation Hardware (Suite REIO) | Impact sur la Sûreté Réelle |
 | :--- | :--- | :--- | :--- |
@@ -43,14 +43,6 @@ L'infrastructure matérielle implémentée sous Vivado est la traduction physiqu
 | **REIO-A4** | Confinement & Seuils | **REIO-XBAR** (Bus Guardian) | Disjonction physique instantanée en 1 cycle (10 ns) dès le franchissement des seuils critiques pour découpler les bus corrompus. |
 | **REIO-A5** | Axiomatisation Récursive | **REIO-SAFE** | Élimination mathématique de la métastabilité inter-horloges par ajustement discret (+1, -1, 0) pour garantir la persistance mémoire. |
 | **REIO-A6** | Attestation Pragmatique | **REIO-CPU** (Verrou Synchrone) | Scellement irréversible de chaque cycle d'évolution. Interception immédiate des fautes via la ligne d'interruption critique. |
-
-### Accès aux Travaux et Confidentialité
-
-* **Recherche Théorique (Axiomes) :** Le dépôt académique associé sur **Zenodo** est placé sous statut d'**Accès Restreint**. 
-
-[![DOI](https://zenodo.org)](https://doi.org)](https://doi.org/10.5281/zenodo.20743411)
-
-* **Implémentation Industrielle (Vivado & Silicon) :** L'accès aux dossiers métrologiques réels, aux rapports de timing post-routage, aux scripts de synthèse et aux spécifications matérielles chiffrées (Netlists sous norme IEEE 1735) est strictement exclus de la publication académique. Ces éléments font l'objet d'un séquestre privé et ne sont partagés qu'après signature d'un **Accord de Confidentialité mutuel (Mutual NDA)**.
 
 ## Analyse Comparative
 
