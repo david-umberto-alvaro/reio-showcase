@@ -18,8 +18,7 @@ Le framework REIO introduit une rupture méthodologique autour de trois axes :
 
 Pour retrouver l'intégralité des tableaux comparatifs, des métrologies post-routage Vivado, ainsi que les détails complets de licence et de propriété intellectuelle (IEEE 1735), veuillez consulter le dépôt et les documents de référence associés.
 
-[![DOI](https://zenodo.org)](https://doi.org)
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20743411.svg)](https://doi.org/10.5281/zenodo.20743411)
 
 ## Analyse Comparative
 
@@ -34,8 +33,6 @@ Pour retrouver l'intégralité des tableaux comparatifs, des métrologies post-r
 ## Statut et Références
 
 Le projet est en validation de concepts (TRL 4). L'accès complet aux netlists, simulations et dossiers de conformité est réservé aux partenaires sous NDA.
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20743411.svg)](https://doi.org/10.5281/zenodo.20743411)
 
 ## Licence et Propriété Intellectuelle
 
