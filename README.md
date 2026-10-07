@@ -11,7 +11,7 @@ Le framework REIO introduit une rupture méthodologique autour de trois axes :
 
 ## Spécifications de la Suite d'IP Cores
 
-* **REIO-CPU / TPU :** Microprocesseur ternaire unifié (67 Slice LUTs, 157 Slice Registers sur AMD Artix-7). Utilise un pilotage MMIO standard (adresse `0x4000_6000`) depuis un logiciel Rust sans nécessiter de compilateur ternaire natif. Isolation en 1 cycle d'horloge (ISO 26262 ASIL-D).
+* **REIO-CPU / TPU :** Microprocesseur ternaire unifié . Utilise un pilotage MMIO standard depuis un logiciel Rust sans nécessiter de compilateur ternaire natif. Isolation en 1 cycle d'horloge (ISO 26262 ASIL-D).
 * **REIO-DRIVE :** Interface de pilotage durcie pour actionneurs ADAS (24 Slice LUTs / 19 Slice Registers) garantissant un temps de propagation maximal déterministe.
 * **REIO-SAFE :** Sentinelle de protection mémoire ultra-légère (8 Slice LUTs / 13 Slice Registers) pour empêcher les débordements de tampon.
 * **REIO-XBAR :** Matrice d'interconnexion et Bus Guardian combinatoire (22 LUTs) assurant un cloisonnement des fautes en temps réel.
