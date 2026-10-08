@@ -21,7 +21,7 @@ Le code source VHDL brut sous sa forme de texte clair est une propriété indust
 L'accès aux livrables d'ingénierie avancés et aux dossiers d'audit consolidés est strictement conditionné par un processus de qualification bilatéral :
 1. **Modèles de Simulation :** Les modèles d'évaluation fonctionnels structurels opaques (`_funcsim.vhd`) et les bibliothèques logicielles compilées (`.a`) sont soumis à restriction.
 2. **Netlists Physiques :** Les Netlists chiffrées de synthèse industrielle, encapsulées selon la norme industrielle d'encapsulation **IEEE 1735** (fichiers `.dcp` protégés pour l'environnement AMD/Xilinx Vivado), sont stockées sous séquestre.
-3. **Dossiers de Sûreté :** Les matrices de traçabilité réglementaire (rapports FMEDA quantitative et dossiers Compliance alignés sur l'ISO 26262) ne sont pas transmissibles en accès libre.
+3. **Dossiers de Sûreté :** Les matrices de traçabilité réglementaire (rapports FMEDA  et dossiers Compliance alignés sur l'ISO 26262) ne sont pas transmissibles en accès libre.
 
 Toute demande de consultation de ces actifs immatériels ou d'évaluation en mode "boîte noire" au sein d'un environnement de test tiers exige impérativement :
 * Une prise de contact officielle et motivée auprès de l'auteur.
