@@ -19,11 +19,12 @@ L'infrastructure matérielle REIO s'articule autour d'une suite de blocs de sili
 | IP Core REIO | Rôle Micro-Architectural | Intérêt Industriel Stratégique | Cas d'Utilisation Système |
 | :--- | :--- | :--- | :--- |
 | **CPU / TPU** | Microprocesseur Ternaire Unifié (Safety Manager) | Élimine le besoin de doubler intégralement le processeur (Lockstep lourd). Offre une isolation synchrone en 1 cycle (10 ns) face aux dérives radiatives (MBU/SEU). Pilotage MMIO standard (`0x4000_6000`) en Rust. | Contrôleur de sécurité central pour superviser en tâche de fond l'état des machines à états (FSM) critiques du calculateur hôte. |
-| **DRIVE** | Interface de Pilotage pour Actionneurs | Garantit un temps de propagation maximal déterministe pour empêcher l'injection d'ordres aberrants ou de pannes latentes sur la couche physique. | Positionné en frontal des contrôleurs de moteurs de direction assistée ou de freinage d'urgence autonome (AEB) pour valider la cohérence. |
+| **DRIVE** | Interface de Pilotage pour Actionneurs | Garantit un temps de propagation maximal déterministe pour empêcher l'injection d'ordres aberrants ou de pannes latentes sur la couche physique. | Positionné en frontal des contrôleurs de moteurs de direction assistée ou de freinage d'urgence autonome (AEB). |
 | **XBAR** | Matrice d'Interconnexion (Bus Guardian) | Assure le cloisonnement des fautes (Fault Containment) en temps réel avec une latence combinatoire nulle (0 cycle). Isole instantanément un nœud défaillant. | Nœud central de communication sécurisé entre le cœur de calcul applicatif (non sûr) et les périphériques certifiés ASIL-D. |
-| **NEXUS** | Supercalculateur Monolithique Unifié (CPU + SNN) | Élimine le besoin de doubler intégralement le processeur (Lockstep lourd). Fusionne un cœur ternaire paraconsistant et un accélérateur d'IA neuromorphique (SNN). Consommation active de seulement 30 mW. | Cœur de contrôle adaptatif et d'intelligence artificielle événementielle pour la détection en ligne de scénarios critiques. |
-| **SRAM** | Banque de Stockage Durcie 16 bits | Apporte une protection continue face aux rayonnements ionisants (SEU) avec un inspecteur de parité combinatoire en 0 cycle. | Zone de rétention et de mise en cache ultra-sûre pour stocker les variables d'état métier du véhicule sans surcharge ECC logicielle. |
-| **BIST** | Sentinelle d'Auto-Test Périodique | Garantit la détection active des pannes latentes et dormantes en injectant des stimuli cycliques en tâche de fond (0 Latch). | Module d'audit matériel autonome pour certifier à chaque cycle que les mécanismes et disjoncteurs de sécurité ne sont pas en panne. |
+| **NEXUS** | Supercalculateur Monolithique Unifié (CPU + SNN) | Élimine le besoin de doubler intégralement le processeur (Lockstep lourd). Fusionne un cœur ternaire paraconsistant et un accélérateur d'IA neuromorphique (SNN). Consommation active de seulement 30 mW [source: 2.24]. | Cœur de contrôle adaptatif et d'intelligence artificielle événementielle pour la détection en ligne de scénarios critiques [source: 2.24]. |
+| **SRAM** | Banque de Stockage Durcie 16 bits | Apporte une protection continue face aux rayonnements ionisants (SEU) avec un inspecteur de parité combinatoire en 0 cycle [source: 2.25]. | Zone de rétention et de mise en cache ultra-sûre pour stocker les variables d'état métier du véhicule sans surcharge ECC logicielle [source: 2.25]. |
+| **BIST** | Sentinelle d'Auto-Test Périodique | Garantit la détection active des pannes latentes et dormantes en injectant des stimuli cycliques en tâche de fond (0 Latch) [source: 2.26]. | Module d'audit matériel autonome pour certifier à chaque cycle que les mécanismes et disjoncteurs de sécurité ne sont pas en panne [source: 2.26]. |
+| **MED** | Disjoncteur Médical Critique (Classe III) | Coupe l'accès aux signaux corrompus en 4,938 ns de logique pure. Consommation totale infime de 88 mW (19 mW dynamique) maintenant le silicium à 25,4 °C. | Placé en frontal des sondes de captation de puces cardiaques ou neurologiques implantables pour empêcher toute asystolie ou injection de tension. |
 
 ## Analyse Comparative Globale
 
@@ -48,13 +49,12 @@ L'infrastructure matérielle implémentée sous Vivado matérialise le passage d
 
 | Axiome | Pilier Théorique | Implémentation Hardware (Suite REIO) | Impact sur la Sûreté Réelle |
 | :--- | :--- | :--- | :--- |
-| **REIO-A1** | Ancrage Matériel Pur | **REIO-NEXUS** (Cœur CPU) | Confinement strict par exclusion d'états intermédiaires. Bloque l'erreur en matériel sans saturer le processeur hôte. |
-| **REIO-A2** | Isolation des Perceptions | **REIO-DRIVE** | Exclusion totale de l'intervention humaine pour prémunir les registres d'actionneurs de toute altération. |
-| **REIO-A3** | Convergence Orthogonale | **REIO-XBAR** | Filtrage matériel ternaire en ligne. Rejet immédiat de toute donnée non ancrée aux primitives physiques (Résolution de Gettier). |
-| **REIO-A4** | Confinement & Seuils | **REIO-XBAR** (Bus Guardian) | Disjonction physique instantanée en 1 cycle (10 ns) dès le franchissement des seuils critiques pour découpler les bus corrompus. |
-| **REIO-A5** | Axiomatisation Récursive | **REIO-SRAM** | Élimination mathématique de la métastabilité inter-horloges par ajustement discret (+1, -1, 0) pour garantir la persistance mémoire. |
-| **REIO-A6** | Attestation Pragmatique | **REIO-NEXUS** (Cœur SNN / BIST) | Scellement irréversible de chaque cycle d'évolution et auto-test cyclique des pannes dormantes. Interception immédiate des fautes. |
-
+| **REIO-A1** | Ancrage Matériel Pur | **REIO-NEXUS** (Cœur CPU) | Confinement strict par exclusion d'états intermédiaires. Bloque l'erreur en matériel sans saturer le processeur hôte. [source: 2.53] |
+| **REIO-A2** | Isolation des Perceptions | **REIO-DRIVE** | Exclusion totale de l'intervention humaine pour prémunir les registres d'actionneurs de toute altération. [source: 2.54] |
+| **REIO-A3** | Convergence Orthogonale | **REIO-XBAR** | Filtrage matériel ternaire en ligne. Rejet immédiat de toute donnée non ancrée aux primitives physiques (Résolution de Gettier). [source: 2.55] |
+| **REIO-A4** | Confinement & Seuils | **REIO-XBAR** (Bus Guardian) / **REIO-MED** | Disjonction physique instantanée (jusqu'à 4,938 ns pour le bloc MED) dès le franchissement des seuils pour isoler les bus ou sondes corrompus. [source: 1, 2.56] |
+| **REIO-A5** | Axiomatisation Récursive | **REIO-SRAM** | Élimination mathématique de la métastabilité inter-horloges par ajustement discret (+1, -1, 0) pour garantir la persistance mémoire. [source: 2.57] |
+| **REIO-A6** | Attestation Pragmatique | **REIO-NEXUS** (Cœur SNN / BIST) | Scellement irréversible de chaque cycle d'évolution et auto-test cyclique des pannes dormantes. Interception immédiate des fautes. [source: 2.58] |
 
 ## Licence et Propriété Intellectuelle
 
