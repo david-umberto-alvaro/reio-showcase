@@ -11,25 +11,16 @@ Le framework REIO introduit une rupture méthodologique autour de trois axes :
 
 ## Spécifications et Intérêts Industriels de la Suite d'IP Cores
 
-### REIO-CPU / TPU : Microprocesseur Ternaire Unifié (Safety Manager)
-* **Spécification :** Séquenceur durci monolithique. Pilotage MMIO transparent (adresse `0x4000_6000`) depuis un logiciel Rust standard, sans compilateur ternaire dédié.
-* **Intérêt Industriel :** Élimine le besoin de doubler intégralement le processeur (Lockstep matériel lourd). Il offre une isolation synchrone en 1 cycle d'horloge (10 ns) face aux dérives provoquées par des perturbations radiatives (MBU/SEU).
-* **Cas d'Utilisation :** Utilisé comme contrôleur de sécurité central pour superviser en tâche de fond l'état des machines à états (FSM) critiques du calculateur hôte.
+## Spécifications et Intérêts Industriels de la Suite d'IP Cores
 
-### REIO-DRIVE : Interface de Pilotage SÉCURISÉE pour Actionneurs
-* **Spécification :** Interface de contrôle durcie pour actionneurs ADAS.
-* **Intérêt Industriel :** Garantit un temps de propagation maximal déterministe pour empêcher l'injection d'ordres aberrants ou de pannes latentes au niveau de la couche physique des actionneurs du véhicule.
-* **Cas d'Utilisation :** Placer directement en frontal des contrôleurs de moteurs de direction assistée ou des modules de freinage d'urgence autonome (AEB) pour valider la cohérence des trames de commande.
+L'infrastructure matérielle REIO s'articule autour d'une suite de blocs de silicium spécialisés, conçus pour s'interconnecter de manière transparente au sein d'une architecture système sécurisée :
 
-### REIO-SAFE : Sentinelle de Protection Mémoire (MMU Ultra-Light)
-* **Spécification :** Sentinelle d'accès mémoire pour la protection des registres critiques.
-* **Intérêt Industriel :** Apporte une isolation matérielle stricte à un coût de surface dérisoire, empêchant les attaques par débordement de tampon (buffer overflow) ou les pointeurs fous d'écraser la configuration de la puce.
-* **Cas d'Utilisation :** Verrouille dynamiquement l'accès aux registres de configuration des horloges (Clock Gating) et de la gestion de l'alimentation après la phase de boot sécurisé.
-
-### REIO-XBAR : Matrice d'Interconnexion et Confinement (Bus Guardian)
-* **Spécification :** Commutateur réseau sur puce (NoC) et cellule de confinement de bus.
-* **Intérêt Industriel :** Assure le cloisonnement des fautes (Fault Containment) en temps réel avec une latence combinatoire nulle (0 cycle). Si un composant non critique devient fou (*babbling idiot*), REIO-XBAR l'isole instantanément.
-* **Cas d'Utilisation :** Positionné comme nœud central de communication entre le cœur de calcul applicatif (non sûr) et les périphériques certifiés ASIL-D.
+| IP Core REIO | Rôle Micro-Architectural | Intérêt Industriel Stratégique | Cas d'Utilisation Système |
+| :--- | :--- | :--- | :--- |
+| **CPU / TPU** | Microprocesseur Ternaire Unifié (Safety Manager) | Élimine le besoin de doubler intégralement le processeur (Lockstep lourd). Offre une isolation synchrone en 1 cycle (10 ns) face aux dérives radiatives (MBU/SEU). Pilotage MMIO standard (`0x4000_6000`) en Rust. | Contrôleur de sécurité central pour superviser en tâche de fond l'état des machines à états (FSM) critiques du calculateur hôte. |
+| **DRIVE** | Interface de Pilotage pour Actionneurs | Garantit un temps de propagation maximal déterministe pour empêcher l'injection d'ordres aberrants ou de pannes latentes sur la couche physique. | Positionné en frontal des contrôleurs de moteurs de direction assistée ou de freinage d'urgence autonome (AEB) pour valider la cohérence. |
+| **SAFE** | Sentinelle de Protection Mémoire (MMU Light) | Apporte une isolation matérielle stricte à un coût de surface dérisoire, empêchant les attaques par débordement de tampon ou les pointeurs fous d'écraser la puce. | Verrouille dynamiquement l'accès aux registres de configuration des horloges (Clock Gating) après la phase de boot sécurisé. |
+| **XBAR** | Matrice d'Interconnexion (Bus Guardian) | Assure le cloisonnement des fautes (Fault Containment) en temps réel avec une latence combinatoire nulle (0 cycle). Isole instantanément un nœud défaillant. | Nœud central de communication sécurisé entre le cœur de calcul applicatif (non sûr) et les périphériques certifiés ASIL-D. |
 
 ### 🔬 Fondations Théoriques & Spécifications (Zenodo DOI)
 
