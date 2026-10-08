@@ -35,15 +35,15 @@ L'infrastructure matérielle REIO s'articule autour d'une suite de blocs de sili
 | **REIO-A5** | Axiomatisation Récursive | **REIO-SAFE** | Élimination mathématique de la métastabilité inter-horloges par ajustement discret (+1, -1, 0) pour garantir la persistance mémoire. |
 | **REIO-A6** | Attestation Pragmatique | **REIO-CPU** (Verrou Synchrone) | Scellement irréversible de chaque cycle d'évolution. Interception immédiate des fautes via la ligne d'interruption critique. |
 
-## Analyse Comparative
+## Analyse Comparative Globale
 
-| Métrique Critique | Approches Standards (ARM / RISC-V Lockstep) | Suite d'IP Cores REIO |
+| Métrique Critique | Approches Standards (ARM / RISC-V Lockstep) | Écosystème Intégral REIO-NEXUS |
 | :--- | :--- | :--- |
-| **Paradigme Logique** | Logique Booléenne Classique (0 / 1) | Émulation de logique trivalente par encodage matériel déterministe |
-| **Temps de Réponse aux Fautes** | Plusieurs microsecondes | Déterministe : Confinement matériel en 1 cycle (10 ns) |
-| **Consommation Dynamique** | ~500 mW à plusieurs Watts | ~1 mW à 3 mW |
-| **Surface d'Empreinte Silicium** | Redondance lourde (Duplication intégrale) | Ultra-compact : < 50 Slice LUTs au total |
-| **Cible Réglementaire Visée** | Certifications constructeurs | Conçu pour s'aligner sur ASIL-D (ISO 26262) |
+| **Paradigme Logique** | Logique Booléenne Classique (0 / 1) | Émulation de logique trivalente par encodage matériel déterministe (L₃). |
+| **Temps de Réponse aux Fautes** | Plusieurs microsecondes (Surcharge logicielle) | Déterministe : Confinement matériel en 1 cycle d'horloge (10 ns). |
+| **Consommation Dynamique** | ~500 mW à plusieurs Watts | **Ultra-sobre : ~30 mW à 80 mW** (Pleine charge active post-routage d'usine). |
+| **Surface d'Empreinte Silicium** | Redondance matérielle lourde (Duplication intégrale) | **Ultra-compact : < 800 Slice LUTs au total** pour le SoC complet (NEXUS + SRAM + BIST). |
+| **Cible Réglementaire Visée** | Certifications constructeurs génériques | Conçu pour s'aligner sur les exigences maximales **ASIL-D (ISO 26262)**. |
 
 ## Statut et Références
 
