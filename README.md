@@ -5,7 +5,7 @@ REIO (Réalisme Expérimental Instrumenté Optimisé) est un projet de recherche
 ## Intérêt Technologique et Innovations
 
 Le framework REIO introduit une rupture méthodologique autour de trois axes :
-1. **Alternative Asymétrique aux Multi-Cœurs en Lockstep :** Déporte la détection des fautes sur des sentinelles matérielles (< 50 Slice LUTs) et la reprise en ligne sur un superviseur en Rust bare-metal.
+1. **Alternative Asymétrique aux Multi-Cœurs en Lockstep :** Déporte la détection des fautes sur des sentinelles matérielles et la reprise en ligne sur un superviseur en Rust bare-metal.
 2. **Émulation de Logique Trivalente (L₃) :** Évalue de manière déterministe un troisième état d'incertitude matérielle pour confiner localement les incohérences logiques.
 3. **Isolation Hybride Synchrone / Combinatoire :** Combine une matrice de confinement à latence de 0 cycle et un étage de disjonction en 1 cycle contre les glitchs électriques.
 
