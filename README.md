@@ -7,7 +7,7 @@ REIO (Réalisme Expérimental Instrumenté Optimisé) est un projet de recherche
 Le framework REIO introduit une rupture micro-architecturale autour de trois axes :
 
 1. **Alternative Asymétrique Économique au Lockstep :** Supprime la duplication lourde de processeurs physiques standard. Il déporte la tolérance aux pannes sur des micro-moteurs asymétriques monolithiques unifiés et la gestion de crise sur un superviseur en Rust bare-metal, divisant par trois l'empreinte silicium.
-2. **Co-Design Paraconsistant et IA Neuromorphique :** Émule une logique trivalente native (L₃) pour évaluer les états d'incertitude physique (Soufre, Sel, Mercure) et intègre un accélérateur à impulsions événementiel (SNN) agissant comme une sentinelle de calcul autonome.
+2. **Co-Design Paraconsistant et IA Neuromorphique :** Émule une logique trivalente native (L₃) pour évaluer les états d'incertitude physique et intègre un accélérateur à impulsions événementiel (SNN) agissant comme une sentinelle de calcul autonome.
 3. **Disjonction Étanche et Annihilation en 1 Cycle :** Combine un Bus Guardian combinatoire à latence de 0 cycle et un étage de pipeline périphérique synchrone pour isoler la puce en 10 ns, forçant le drainage immédiat des bus vers le potentiel neutre de la masse (0V).
 
 ## Spécifications et Intérêts Industriels de la Suite d'IP Cores
