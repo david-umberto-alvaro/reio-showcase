@@ -4,8 +4,6 @@ REIO (Réalisme Expérimental Instrumenté Optimisé) est un projet de recherche
 
 ## Rupture Méthodologique
 
-## Rupture Méthodologique
-
 Le système REIO introduit un paradigme de co-design matériel/logiciel pour la sûreté de fonctionnement des architectures embarquées critiques (ISO 26262 ASIL-D), articulé autour de trois axes industriels :
 
 1. **Alternative Asymétrique à la Redondance Matérielle (Lockstep) :** Supprime l'obligation de dupliquer intégralement les cœurs de processeurs physiques standards, une pratique qui sature la surface de silicium et augmente la consommation d'énergie. REIO déporte la tolérance aux pannes sur des micro-moteurs asymétriques monolithiques unifiés et la gestion de crise sur un superviseur logiciel bare-metal, optimisant drastiquement l'empreinte physique et le rendement énergétique des puces.
