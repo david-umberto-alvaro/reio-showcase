@@ -21,7 +21,7 @@ Le framework de co-design REIO a été développé pour s'intégrer de manière 
 * **Dispositifs Médicaux d'Implantation (Classe III) :** Confinement d'urgence ultra-rapide (< 5 ns) pour les boucles de régulation cardiaque ou neurologique afin d'interdire toute injection de tension ou asystolie fatale.
 * **Infrastructures Critiques & Défense :** Protection physique des nœuds de communication industriels (Automates, Edge Computing) contre les cyber-attaques par injection de fautes ou analyses par canaux cachés (DPA).
 
-## Spécifications et Intérêts Industriels de la Suite d'IP Cores
+## Spécifications de la Suite d'IP Cores
 
 L'infrastructure matérielle REIO s'articule autour d'une suite de blocs de silicium spécialisés, conçus pour s'interconnecter de manière transparente au sein d'une architecture système sécurisée :
 
