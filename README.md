@@ -2,13 +2,14 @@
 
 REIO (Réalisme Expérimental Instrumenté Optimisé) est un projet de recherche technologique indépendant (TRL 4) adossé à un dépôt académique Zenodo, proposant une suite d'IP Cores et un processeur de confiance pour durcir les architectures embarquées critiques.
 
-## Intérêt Technologique et Innovations
+## Rupture Méthodologique
 
-Le framework REIO introduit une rupture micro-architecturale autour de trois axes :
+Le framework REIO introduit un nouveau paradigme micro-architectural pour la sûreté de fonctionnement des systèmes embarqués critiques autour de trois axes fondamentaux :
 
-1. **Alternative Asymétrique Économique au Lockstep :** Supprime la duplication lourde de processeurs physiques standard. Il déporte la tolérance aux pannes sur des micro-moteurs asymétriques monolithiques unifiés et la gestion de crise sur un superviseur en Rust bare-metal, divisant par trois l'empreinte silicium.
-2. **Co-Design Paraconsistant et IA Neuromorphique :** Émule une logique trivalente native (L₃) pour évaluer les états d'incertitude physique et intègre un accélérateur à impulsions événementiel (SNN) agissant comme une sentinelle de calcul autonome.
-3. **Disjonction Étanche et Annihilation en 1 Cycle :** Combine un Bus Guardian combinatoire à latence de 0 cycle et un étage de pipeline périphérique synchrone pour isoler la puce en 10 ns, forçant le drainage immédiat des bus vers le potentiel neutre de la masse (0V).
+1. **Alternative Asymétrique au Matériel Redondant :** Supprime la duplication lourde et coûteuse de cœurs physiques standard (types multi-processeurs en Lockstep). La tolérance aux pannes est déportée sur des blocs de calcul asymétriques microscopiques et la gestion de crise sur un plan de contrôle logiciel déterministe, optimisant drastiquement l'empreinte silicium et l'efficacité énergétique.
+2. **Co-Design Paraconsistant et Sentinelles Actives :** Implémente une logique trivalente native (L₃) capable d'évaluer et de confiner mathématiquement les états d'incertitude physique (Soufre, Sel, Mercure). Ce traitement est couplé à des accélérateurs asynchrones événementiels et des automates d'auto-test qui agissent comme des vigies de surveillance autonomes.
+3. **Disjonction Étanche et Annihilation Restrictive :** Combine des barrières de périphérie de bus à latence combinatoire nulle et des étages de pipeline synchrones pour intercepter et figer toute dérive logique en 1 cycle d'horloge. En cas d'anomalie, le système force l'effondrement immédiat et le drainage des lignes physiques vers le potentiel neutre de la masse (0V).
+
 
 ## Spécifications et Intérêts Industriels de la Suite d'IP Cores
 
