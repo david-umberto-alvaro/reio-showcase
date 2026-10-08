@@ -4,12 +4,13 @@ REIO (Réalisme Expérimental Instrumenté Optimisé) est un projet de recherche
 
 ## Rupture Méthodologique
 
-Le framework REIO introduit un nouveau paradigme micro-architectural pour la sûreté de fonctionnement des systèmes embarqués critiques autour de trois axes fondamentaux :
+## Rupture Méthodologique
 
-1. **Alternative Asymétrique au Matériel Redondant :** Supprime la duplication lourde et coûteuse de cœurs physiques standard (types multi-processeurs en Lockstep). La tolérance aux pannes est déportée sur des blocs de calcul asymétriques microscopiques et la gestion de crise sur un plan de contrôle logiciel déterministe, optimisant drastiquement l'empreinte silicium et l'efficacité énergétique.
-2. **Co-Design Paraconsistant et Sentinelles Actives :** Implémente une logique trivalente native (L₃) capable d'évaluer et de confiner mathématiquement les états d'incertitude physique (Soufre, Sel, Mercure). Ce traitement est couplé à des accélérateurs asynchrones événementiels et des automates d'auto-test qui agissent comme des vigies de surveillance autonomes.
-3. **Disjonction Étanche et Annihilation Restrictive :** Combine des barrières de périphérie de bus à latence combinatoire nulle et des étages de pipeline synchrones pour intercepter et figer toute dérive logique en 1 cycle d'horloge. En cas d'anomalie, le système force l'effondrement immédiat et le drainage des lignes physiques vers le potentiel neutre de la masse (0V).
+Le système REIO introduit un paradigme de co-design matériel/logiciel pour la sûreté de fonctionnement des architectures embarquées critiques (ISO 26262 ASIL-D), articulé autour de trois axes industriels :
 
+1. **Alternative Asymétrique à la Redondance Matérielle (Lockstep) :** Supprime l'obligation de dupliquer intégralement les cœurs de processeurs physiques standards, une pratique qui sature la surface de silicium et augmente la consommation d'énergie. REIO déporte la tolérance aux pannes sur des micro-moteurs asymétriques monolithiques unifiés et la gestion de crise sur un superviseur logiciel bare-metal, optimisant drastiquement l'empreinte physique et le rendement énergétique des puces.
+2. **Co-Design Paraconsistant et Sentinelles Actives :** Implémente un décodeur et une unité de calcul à logique trivalente native pour évaluer de manière déterministe les états d'incertitude physique (bit-flips, perturbations radiatives SEU/MBU). Ce traitement est couplé à des accélérateurs asynchrones événementiels et des automates de test intégrés (BIST) qui agissent comme des vigies matérielles autonomes pour éradiquer les pannes latentes.
+3. **Disjonction Étanche et Annihilation Restrictive :** Combine des barrières de périphérie de bus à latence combinatoire nulle (Bus Guardian) et des étages de pipeline synchrones pour intercepter et figer toute dérive logique en 1 cycle d'horloge (10 ns). En cas d'anomalie ou de tentative d'injection de fautes, le système force l'effondrement immédiat et le drainage des lignes physiques de transmission vers le potentiel neutre de la masse (0V), isolant le SoC pour protéger les actionneurs externes.
 
 ## Spécifications et Intérêts Industriels de la Suite d'IP Cores
 
