@@ -1,6 +1,8 @@
 # REIO — Framework de Co-Design Hardware/Software pour la Sûreté des Systèmes Embarqués
 
-REIO (Réalisme Expérimental Instrumenté Optimisé) est un projet de recherche technologique indépendant (TRL 4) adossé à un dépôt académique Zenodo, proposant une suite d'IP Cores et un processeur de confiance pour durcir les architectures embarquées critiques.
+REIO (Réalisme Expérimental Instrumenté Optimisé) est un projet de recherche DeepTech indépendant (TRL 4) adossé à un dépôt académique Zenodo, proposant une suite d'IP Cores et un processeur de confiance pour durcir les architectures embarquées critiques.
+
+**Le but de la rupture REIO est simple : au lieu de rajouter des surcouches logicielles complexes et lourdes pour tenter de corriger des pannes physiques, le framework résout le problème directement dans le matériel (Hardware).** En gravant la tolérance aux pannes au cœur du silicium, REIO élimine les risques de crashs et de métastabilité à la nanoseconde près, tout en préservant l'usage d'un code logiciel standard et léger.
 
 ## Rupture Méthodologique
 
@@ -42,7 +44,7 @@ Le projet est en validation de concepts (TRL 4). L'accès complet aux netlists, 
 
 ### Matrice d'Alignement Synthétique (Fondations Logiques L₃ ⇄ IP Cores)
 
-L'infrastructure matérielle implémentée sous Vivado est la traduction physique directe des règles de sûreté formalisées dans la théorie paraconsistante :
+L'infrastructure matérielle implémentée sous Vivado matérialise le passage de la logique pure au silicium, traduisant physiquement les règles de sûreté formalisées dans la théorie paraconsistante :
 
 | Axiome | Pilier Théorique | Implémentation Hardware (Suite REIO) | Impact sur la Sûreté Réelle |
 | :--- | :--- | :--- | :--- |
