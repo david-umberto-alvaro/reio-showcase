@@ -12,6 +12,15 @@ Le système REIO introduit un paradigme de co-design matériel/logiciel pour la 
 2. **Co-Design Paraconsistant et Sentinelles Actives :** Implémente un décodeur et une unité de calcul à logique trivalente native pour évaluer de manière déterministe les états d'incertitude physique (bit-flips, perturbations radiatives SEU/MBU). Ce traitement est couplé à des accélérateurs asynchrones événementiels et des automates de test intégrés (BIST) qui agissent comme des vigies matérielles autonomes pour éradiquer les pannes latentes.
 3. **Disjonction Étanche et Annihilation Restrictive :** Combine des barrières de périphérie de bus à latence combinatoire nulle (Bus Guardian) et des étages de pipeline synchrones pour intercepter et figer toute dérive logique en 1 cycle d'horloge (10 ns). En cas d'anomalie ou de tentative d'injection de fautes, le système force l'effondrement immédiat et le drainage des lignes physiques de transmission vers le potentiel neutre de la masse (0V), isolant le SoC pour protéger les actionneurs externes.
 
+## Domaines d'Application et Intérêts Industriels Globaux
+
+Le framework de co-design REIO a été développé pour s'intégrer de manière transparente au sein des filières industrielles stratégiques exigeant les plus hauts niveaux de certification réglementaire :
+
+* **Automobile Connectée & ADAS (ISO 26262 ASIL-D) :** Sécurisation en frontal des calculateurs de freinage d'urgence autonome (AEB), de direction assistée électrique ou de fusion de données capteurs (Radar/Lidar) face aux perturbations électriques et bit-flips.
+* **Aérospatial & Constellations NewSpace :** Durcissement natif des architectures informatiques embarquées et des calculateurs de bord soumis aux rayonnements ionisants de l'environnement spatial (pannes stochastiques SEU/MBU).
+* **Dispositifs Médicaux d'Implantation (Classe III) :** Confinement d'urgence ultra-rapide (< 5 ns) pour les boucles de régulation cardiaque ou neurologique afin d'interdire toute injection de tension ou asystolie fatale.
+* **Infrastructures Critiques & Défense :** Protection physique des nœuds de communication industriels (Automates, Edge Computing) contre les cyber-attaques par injection de fautes ou analyses par canaux cachés (DPA).
+
 ## Spécifications et Intérêts Industriels de la Suite d'IP Cores
 
 L'infrastructure matérielle REIO s'articule autour d'une suite de blocs de silicium spécialisés, conçus pour s'interconnecter de manière transparente au sein d'une architecture système sécurisée :
