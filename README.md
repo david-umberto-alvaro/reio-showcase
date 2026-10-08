@@ -25,6 +25,7 @@ L'infrastructure matérielle REIO s'articule autour d'une suite de blocs de sili
 | **SRAM** | Banque de Stockage Durcie 16 bits | Apporte une protection continue face aux rayonnements ionisants (SEU) avec un inspecteur de parité combinatoire en 0 cycle [source: 2.25]. | Zone de rétention et de mise en cache ultra-sûre pour stocker les variables d'état métier du véhicule sans surcharge ECC logicielle [source: 2.25]. |
 | **BIST** | Sentinelle d'Auto-Test Périodique | Garantit la détection active des pannes latentes et dormantes en injectant des stimuli cycliques en tâche de fond (0 Latch) [source: 2.26]. | Module d'audit matériel autonome pour certifier à chaque cycle que les mécanismes et disjoncteurs de sécurité ne sont pas en panne [source: 2.26]. |
 | **MED** | Disjoncteur Médical Critique (Classe III) | Coupe l'accès aux signaux corrompus en 4,938 ns de logique pure. Consommation totale infime de 88 mW (19 mW dynamique) maintenant le silicium à 25,4 °C. | Placé en frontal des sondes de captation de puces cardiaques ou neurologiques implantables pour empêcher toute asystolie ou injection de tension. |
+| **SAFE** | Sentinelle MMU Ultra-Light (Bus Protector) | Assure la protection continue des espaces d'adressage contre les sauts de pointeurs erronés ou les corruptions de registres d'index (0 cycle). | Segment de cloisonnement matériel placé entre le contrôleur DMA et la zone de stockage critique pour interdire les écritures hors limites. |
 
 ## Analyse Comparative Globale
 
