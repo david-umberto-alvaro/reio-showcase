@@ -4,6 +4,8 @@ REIO (Réalisme Expérimental Instrumenté Optimisé) est un projet de recherche
 
 **Le but de la rupture REIO est simple : au lieu de rajouter des surcouches logicielles complexes et lourdes pour tenter de corriger des pannes physiques, le framework résout le problème directement dans le matériel (Hardware).** En gravant la tolérance aux pannes au cœur du silicium, REIO élimine les risques de crashs et de métastabilité à la nanoseconde près, tout en préservant l'usage d'un code logiciel standard et léger.
 
+---
+
 ## Rupture Méthodologique
 
 Le système REIO introduit un paradigme de co-design matériel/logiciel pour la sûreté de fonctionnement des architectures embarquées critiques (ISO 26262 ASIL-D), articulé autour de trois axes industriels :
@@ -11,6 +13,8 @@ Le système REIO introduit un paradigme de co-design matériel/logiciel pour la 
 1. **Alternative Asymétrique à la Redondance Matérielle (Lockstep) :** Supprime l'obligation de dupliquer intégralement les cœurs de processeurs physiques standards, une pratique qui sature la surface de silicium et augmente la consommation d'énergie. REIO déporte la tolérance aux pannes sur des micro-moteurs asymétriques monolithiques unifiés et la gestion de crise sur un superviseur logiciel bare-metal, optimisant drastiquement l'empreinte physique et le rendement énergétique des puces.
 2. **Co-Design Paraconsistant et Sentinelles Actives :** Implémente un décodeur et une unité de calcul à logique trivalente native pour évaluer de manière déterministe les états d'incertitude physique (bit-flips, perturbations radiatives SEU/MBU). Ce traitement est couplé à des accélérateurs asynchrones événementiels et des automates de test intégrés (BIST) qui agissent comme des vigies matérielles autonomes pour éradiquer les pannes latentes.
 3. **Disjonction Étanche et Annihilation Restrictive :** Combine des barrières de périphérie de bus à latence combinatoire nulle (Bus Guardian) et des étages de pipeline synchrones pour intercepter et figer toute dérive logique en 1 cycle d'horloge (10 ns). En cas d'anomalie ou de tentative d'injection de fautes, le système force l'effondrement immédiat et le drainage des lignes physiques de transmission vers le potentiel neutre de la masse (0V), isolant le SoC pour protéger les actionneurs externes.
+
+---
 
 ## Domaines d'Application et Intérêts Industriels Globaux
 
@@ -20,6 +24,8 @@ Le framework de co-design REIO a été développé pour s'intégrer de manière 
 * **Aérospatial & Constellations NewSpace :** Durcissement natif des architectures informatiques embarquées et des calculateurs de bord soumis aux rayonnements ionisants de l'environnement spatial (pannes stochastiques SEU/MBU).
 * **Dispositifs Médicaux d'Implantation (Classe III) :** Confinement d'urgence ultra-rapide (< 5 ns) pour les boucles de régulation cardiaque ou neurologique afin d'interdire toute injection de tension ou asystolie fatale.
 * **Infrastructures Critiques & Défense :** Protection physique des nœuds de communication industriels (Automates, Edge Computing) contre les cyber-attaques par injection de fautes ou analyses par canaux cachés (DPA).
+
+---
 
 ## Spécifications de la Suite d'IP Cores
 
@@ -36,6 +42,8 @@ L'infrastructure matérielle REIO s'articule autour d'une suite de blocs de sili
 | **MED** | Isolation Dynamique Co-Design (Classe III) | Coupe l'accès aux signaux corrompus en 4,938 ns de logique pure. Consommation totale infime de 88 mW (19 mW dynamique) maintenant le silicium à 25,4 °C. | Placé en frontal des sondes de captation de puces cardiaques ou neurologiques implantables pour empêcher toute asystolie ou injection de tension. |
 | **SAFE** | Sentinelle MMU Ultra-Light (Bus Protector) | Assure la protection continue des espaces d'adressage contre les sauts de pointeurs erronés ou les corruptions de registres d'index (0 cycle). | Segment de cloisonnement matériel placé entre le contrôleur DMA et la zone de stockage critique pour interdire les écritures hors limites. |
 
+---
+
 ## Analyse Comparative Globale
 
 | Métrique Critique | Approches Standards (ARM / RISC-V Lockstep) | Écosystème Intégral REIO-NEXUS |
@@ -46,12 +54,16 @@ L'infrastructure matérielle REIO s'articule autour d'une suite de blocs de sili
 | **Surface d'Empreinte Silicium** | Redondance matérielle lourde (Duplication intégrale) | **Ultra-compact : < 800 Slice LUTs au total** pour le SoC complet (NEXUS + SRAM + BIST). |
 | **Cible Réglementaire Visée** | Certifications constructeurs génériques | Conçu pour s'aligner sur les exigences maximales **ASIL-D (ISO 26262)**. |
 
+---
+
 ## Statut et Références
 
 Le projet est en validation de concepts (TRL 4). L'accès complet aux netlists, simulations et dossiers de conformité est réservé aux partenaires sous NDA.
 ### Fondations Théoriques & Spécifications (Zenodo DOI)
 
 * **REIO-CORE :** Cadre logique formel s'appuyant sur une approche logique paraconsistante et des machines d'états (FSM) durcies pour garantir un confinement contextuel déterministe malgré les fautes physiques (*bit-flips*). Document de recherche officiel enregistré sous l'identifiant académique permanent : [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20743411.svg)](https://doi.org/10.5281/zenodo.20743411)
+
+---
 
 ### Matrice d'Alignement Synthétique (Fondations Logiques L₃ ⇄ IP Cores)
 
@@ -65,6 +77,8 @@ L'infrastructure matérielle implémentée sous Vivado matérialise le passage d
 | **REIO-A4** | Confinement & Seuils | **REIO-XBAR** (Bus Guardian) / **REIO-MED** | Disjonction physique instantanée (jusqu'à 4,938 ns pour le bloc MED) dès le franchissement des seuils pour isoler les bus ou sondes corrompus. |
 | **REIO-A5** | Axiomatisation Récursive | **REIO-SRAM** | Élimination mathématique de la métastabilité inter-horloges par ajustement discret (+1, -1, 0) pour garantir la persistance mémoire. |
 | **REIO-A6** | Attestation Pragmatique | **REIO-NEXUS** (Cœur SNN / BIST) | Scellement irréversible de chaque cycle d'évolution et auto-test cyclique des pannes dormantes. Interception immédiate des fautes. |
+
+---
 
 ## Licence et Propriété Intellectuelle
 
