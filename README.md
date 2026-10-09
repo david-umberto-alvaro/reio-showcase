@@ -63,9 +63,6 @@ Le projet est en validation de concepts (TRL 4). L'accès complet aux netlists, 
 
 * **REIO-CORE :** Cadre logique formel s'appuyant sur une approche logique paraconsistante et des machines d'états (FSM) durcies pour garantir un confinement contextuel déterministe malgré les fautes physiques (*bit-flips*). Document de recherche officiel enregistré sous l'identifiant académique permanent :[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20743411.svg)](https://doi.org/10.5281/zenodo.20743411)
 
-
----
-
 ### Matrice d'Alignement Synthétique (Fondations Logiques L₃ ⇄ IP Cores)
 
 L'infrastructure matérielle implémentée sous Vivado matérialise le passage de la logique pure au silicium, traduisant physiquement les règles de sûreté formalisées dans la théorie paraconsistante :
